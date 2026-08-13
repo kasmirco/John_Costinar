@@ -6,26 +6,26 @@ const profile = document.getElementById("profilePhoto");
 // FRAME ANIMATION SETUP
 // ===============================
 const frames = [
-  "../Frame/Frame 1 (START) - DAY.jpg",
-  "../Frame/frame 2.png",
-  "../Frame/frame 3.png",
-  "../Frame/frame 4.png",
-  "../Frame/frame 5.png",
-  "../Frame/frame 6.png",
-  "../Frame/frame 7.png",
-  "../Frame/frame 8.png",
-  "../Frame/frame 9.png",
-  "../Frame/frame 10.png",
-  "../Frame/frame 11.png",
-  "../Frame/frame 12.png",
-  "../Frame/frame 13.png",
-  "../Frame/frame 15.png",
-  "../Frame/frame 16.png",
-  "../Frame/frame 17.png",
-  "../Frame/frame 18.png",
-  "../Frame/frame 19.png",
-  "../Frame/frame 20.png",
-  "../Frame/frame 21 (FINAL) - NIGHT.jpg"
+  "..//Frame/Frame 1 (START) - DAY.jpg",
+  "..//Frame/frame 2.png",
+  "..//Frame/frame 3.png",
+  "..//Frame/frame 4.png",
+  "..//Frame/frame 5.png",
+  "..//Frame/frame 6.png",
+  "..//Frame/frame 7.png",
+  "..//Frame/frame 8.png",
+  "..//Frame/frame 9.png",
+  "..//Frame/frame 10.png",
+  "..//Frame/frame 11.png",
+  "..//Frame/frame 12.png",
+  "..//Frame/frame 13.png",
+  "..//Frame/frame 15.png",
+  "..//Frame/frame 16.png",
+  "..//Frame/frame 17.png",
+  "..//Frame/frame 18.png",
+  "..//Frame/frame 19.png",
+  "..//Frame/frame 20.png",
+  "..//Frame/frame 21 (FINAL) - NIGHT.jpg"
 ];
 
 // ===============================
