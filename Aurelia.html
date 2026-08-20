@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aurelia Estates premium real estate website project showcase." />
+  <title>Aurelia Estates | Project</title>
+
+  <link rel="icon" href="/src/assets/nav-logo.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --bg: #f5f1e9;
+      --surface: #ffffff;
+      --text: #211f1b;
+      --muted: #716d64;
+      --border: #e3ddd2;
+
+      /* Aurelia Estates Theme */
+      --gold: #b89a63;
+      --gold-dark: #8e713f;
+      --champagne: #d8c39a;
+      --cream: #f4ecdc;
+      --charcoal: #211f1b;
+      --charcoal-2: #39352e;
+
+      --shadow: 0 14px 38px rgba(45, 38, 28, .10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(12px, 3vw, 34px);
+      font-family: "Segoe UI", Inter, system-ui, -apple-system,
+        BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 8% 5%,
+          rgba(216,195,154,.20),
+          transparent 25rem
+        ),
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(184,154,99,.11),
+          transparent 28rem
+        ),
+        linear-gradient(
+          180deg,
+          #fffdf9 0%,
+          var(--bg) 55%,
+          #fffdf9 100%
+        );
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .project-card {
+      width: min(1200px, 100%);
+      margin: 0 auto;
+      overflow: hidden;
+
+      background: rgba(255,255,255,.97);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .inner {
+      padding: clamp(18px, 4vw, 42px);
+    }
+
+    /* Header */
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      margin-bottom: clamp(24px, 4vw, 40px);
+
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 42px;
+      padding: 9px 15px;
+
+      text-decoration: none;
+      color: var(--text);
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+
+      font-weight: 700;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+
+      border-color: #cfc3ad;
+
+      box-shadow:
+        0 7px 18px rgba(45,38,28,.09);
+    }
+
+    .breadcrumb {
+      overflow-wrap: anywhere;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 440px);
+
+      gap: clamp(28px, 5vw, 64px);
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin: 0 0 12px;
+      padding: 7px 11px;
+
+      border: 1px solid #ddcba8;
+      border-radius: 999px;
+
+      background: var(--cream);
+      color: var(--gold-dark);
+
+      font-size: .77rem;
+      font-weight: 800;
+
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow i {
+      color: var(--gold);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: .98;
+
+      letter-spacing: -.055em;
+    }
+
+    .tagline {
+      margin: 12px 0 0;
+
+      color: var(--gold-dark);
+
+      font-weight: 800;
+
+      font-size: clamp(.95rem, 1.5vw, 1.1rem);
+    }
+
+    .description {
+      max-width: 690px;
+      margin: 16px 0 0;
+
+      color: var(--muted);
+
+      font-size: clamp(.95rem, 1.5vw, 1.07rem);
+
+      line-height: 1.75;
+    }
+
+    /* Showcase */
+
+    .showcase {
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      min-width: 0;
+    }
+
+    .showcase::before {
+      content: "";
+
+      position: absolute;
+
+      width: 90%;
+      aspect-ratio: 1;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(184,154,99,.18),
+          rgba(216,195,154,.11) 35%,
+          transparent 68%
+        );
+
+      filter: blur(8px);
+    }
+
+    .showcase img {
+      position: relative;
+      z-index: 1;
+
+      display: block;
+
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+
+      object-fit: contain;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow:
+        0 22px 45px rgba(45,38,28,.15);
+    }
+
+    /* Buttons */
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin: clamp(28px, 4vw, 40px) 0;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 46px;
+      padding: 11px 18px;
+
+      border-radius: 11px;
+
+      text-decoration: none;
+      font-weight: 700;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 9px 22px rgba(45,38,28,.13);
+
+      filter: brightness(1.04);
+    }
+
+    .demo-btn {
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-dark),
+          var(--gold)
+        );
+    }
+
+    .github-btn {
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--charcoal),
+          var(--charcoal-2)
+        );
+    }
+
+    /* Information Cards */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+    .info-card {
+      min-width: 0;
+
+      padding: clamp(18px, 3vw, 24px);
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .info-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      margin: 0 0 16px;
+
+      font-size: 1.05rem;
+    }
+
+    .info-title > i {
+      display: grid;
+      place-items: center;
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 10px;
+
+      background: var(--cream);
+      color: var(--gold-dark);
+    }
+
+    /* Technologies */
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin: 0;
+    }
+
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 13px;
+
+      border-radius: 12px;
+
+      font-size: .9rem;
+      font-weight: 700;
+
+      color: #fff;
+    }
+
+    .tech-badge.html {
+      background:
+        linear-gradient(
+          135deg,
+          #c84b27,
+          #e36a3a
+        );
+    }
+
+    .tech-badge.css {
+      background:
+        linear-gradient(
+          135deg,
+          #36599f,
+          #4e76c1
+        );
+    }
+
+    .tech-badge.js {
+      background: #d6b83f;
+      color: #211f1b;
+    }
+
+    /* Features */
+
+    .features {
+      display: grid;
+      gap: 12px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .features li {
+      display: grid;
+
+      grid-template-columns:
+        20px minmax(0, 1fr);
+
+      gap: 9px;
+
+      color: #625e56;
+
+      line-height: 1.55;
+    }
+
+    .features li::before {
+      content: "✓";
+
+      color: var(--gold-dark);
+
+      font-weight: 900;
+    }
+
+    .features b {
+      color: var(--text);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        justify-content: flex-start;
+      }
+
+      .showcase img {
+        max-width: 560px;
+      }
+    }
+
+    @media (max-width: 680px) {
+
+      body {
+        padding: 10px;
+      }
+
+      .project-card {
+        border-radius: 16px;
+      }
+
+      .inner {
+        padding: 18px;
+      }
+
+      .hero {
+        gap: 24px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .description {
+        font-size: .94rem;
+        line-height: 1.65;
+      }
+
+      .showcase,
+      .showcase img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .showcase img {
+        border-radius: 14px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .action-btn {
+        width: 100%;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 400px) {
+
+      .inner {
+        padding: 15px;
+      }
+
+      .project-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+      }
+
+      .back-btn {
+        width: 100%;
+      }
+
+      .tech-badge {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .info-card {
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="project-card">
+
+    <div class="inner">
+
+      <!-- Header -->
+
+      <header class="project-header">
+
+        <a href="Project.html" class="back-btn">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+          <span>Back</span>
+        </a>
+
+        <span class="breadcrumb">
+          Projects &gt; <strong>Aurelia Estates</strong>
+        </span>
+
+      </header>
+
+
+      <!-- Hero -->
+
+      <section class="hero" aria-labelledby="project-title">
+
+        <div class="text-content">
+
+          <p class="eyebrow">
+            <i class="bi bi-buildings-fill" aria-hidden="true"></i>
+            Premium Real Estate
+          </p>
+
+          <h1 id="project-title">
+            Aurelia Estates
+          </h1>
+
+          <p class="tagline">
+            Spaces That Become Stories.
+          </p>
+
+          <p class="description">
+            Aurelia Estates is a premium and responsive real estate website
+            designed to help individuals discover exceptional homes, explore
+            curated properties, and find spaces where meaningful stories can
+            begin. The platform showcases remarkable residences, exclusive
+            addresses, property experiences, viewing appointments, contact
+            inquiries, and personalized real estate support for individuals,
+            families, investors, and those searching for their ideal home.
+            Built with a sophisticated and visually engaging interface, the
+            website combines elegant property storytelling with a seamless
+            browsing experience to make finding the perfect place more
+            inspiring, convenient, and meaningful.
+          </p>
+
+        </div>
+
+
+        <div class="showcase">
+
+          <img
+            src="../src/assets/Projects (21).JPG"
+            alt="Aurelia Estates premium real estate website preview"
+            loading="eager"
+          />
+
+        </div>
+
+      </section>
+
+
+      <!-- Actions -->
+
+      <div class="actions">
+
+        <a
+          href="https://kasmirco.github.io/Aurelia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-btn demo-btn"
+        >
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+          <span>Live Demo</span>
+        </a>
+
+
+        <a
+          href="https://github.com/kasmirco/Aurelia"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-btn github-btn"
+        >
+          <i class="bi bi-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+
+      </div>
+
+
+      <!-- Information -->
+
+      <section class="info-grid">
+
+
+        <!-- Technologies -->
+
+        <article class="info-card">
+
+          <h2 class="info-title">
+            <i class="bi bi-code-slash" aria-hidden="true"></i>
+            Technologies Used
+          </h2>
+
+          <div class="tech-list">
+
+            <span class="tech-badge html">
+              <i class="bi bi-filetype-html"></i>
+              HTML
+            </span>
+
+            <span class="tech-badge css">
+              <i class="bi bi-filetype-css"></i>
+              CSS
+            </span>
+
+            <span class="tech-badge js">
+              <i class="bi bi-filetype-js"></i>
+              JavaScript
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- Key Features -->
+
+        <article class="info-card">
+
+          <h2 class="info-title">
+            <i class="bi bi-stars" aria-hidden="true"></i>
+            Key Features
+          </h2>
+
+          <ul class="features">
+
+            <li>
+              <span>
+                <b>Responsive Layout:</b>
+                Adapts smoothly to desktop, tablet, and mobile devices.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <b>Property Showcase:</b>
+                Presents exceptional homes, curated residences, and remarkable addresses through an elegant visual experience.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <b>Property Experience:</b>
+                Allows visitors to explore different residences and discover details about each property.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                <b>Viewing & Contact:</b>
+                Provides convenient access to viewing appointments, inquiries, and personalized real estate support.
+              </span>
+            </li>
+
+          </ul>
+
+        </article>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
